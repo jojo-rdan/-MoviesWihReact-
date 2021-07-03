@@ -1,17 +1,26 @@
+//From React
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+//Estilos
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+//Componentes
+import {App} from "./App.jsx";
+
+// const contenido =<div>
+//     <h1>Hola desde React</h1>
+//     <div>Hola desde REact</div>
+// </div>;
+
+// function Componente({titulo, children}){
+    // const titulo = props.titulo;
+    // const contenido = props.contenido;
+//     return <div className="contenedor">
+//     <h1>{titulo}</h1>
+//     <div>{children}</div>
+// </div>;
+// }
+
+ReactDOM.render(<App />, document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
