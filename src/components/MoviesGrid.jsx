@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { MovieCard } from "./MovieCard";
 import movies from "./Movies.json";
 
@@ -5,7 +6,13 @@ import movies from "./Movies.json";
 import styles from "./MoviesGrid.module.css"
 
 export function MoviesGrid(){
-    console.log(movies)
+    useEffect(() => [
+        fetch("/discover/movie", {
+            headers: {
+                Authorization: "Bearer"
+            }
+        })
+    ])
     return (
     <ul className={styles.moviesGrid}>
         {movies.map((movie) => 
