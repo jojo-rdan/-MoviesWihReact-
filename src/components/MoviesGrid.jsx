@@ -1,18 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { MovieCard } from "./MovieCard";
-import movies from "./Movies.json";
+import { get } from "../utils/httpClient"
 
 //Estilos
 import styles from "./MoviesGrid.module.css"
 
 export function MoviesGrid(){
-    useEffect(() => [
-        fetch("/discover/movie", {
-            headers: {
-                Authorization: "Bearer"
-            }
-        })
-    ])
+    const [movies, setMovies] = useState([]);
+    useEffect (() => {
+        get("/discover/movie").then((data) => {
+            setMovies(data.results);
+        });
+    }, [])
     return (
     <ul className={styles.moviesGrid}>
         {movies.map((movie) => 
