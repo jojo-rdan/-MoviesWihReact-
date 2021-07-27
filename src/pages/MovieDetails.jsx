@@ -8,18 +8,16 @@ export function MovieDetails() {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null)
     const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
         setIsLoading(true);
         get("/movie/" + movieId).then(data => {
-            setIsLoading(false)
             setMovie(data);
+            setIsLoading(false)
         })
     }, [movieId])
     if(isLoading){
         return <Spinner/>
-    }
-    if(!movie) {
-        return null;
     }
 
     const imagenUrl = `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
